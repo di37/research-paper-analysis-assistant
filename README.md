@@ -1,4 +1,4 @@
-# Research Paper Analysis Assistant
+# AI powered - Research Paper Analyst
 
 This application uses the Gemini model to provide in-depth analysis of research papers (in PDF format). By leveraging Gemini’s extended context window—capable of handling up to 2 million tokens—this tool can retain and reference large sections of a research paper at once, enabling a more comprehensive understanding and more accurate responses to user queries.
 
@@ -22,8 +22,8 @@ This application uses the Gemini model to provide in-depth analysis of research 
 1. **Clone the Repository:**
 
    ```bash
-   git clone <REPO_URL>
-   cd <REPO_DIRECTORY>
+   git clone https://github.com/di37/research-paper-analyst
+   cd research-paper-analyst
    ```
 
 2. **Install Dependencies:**
