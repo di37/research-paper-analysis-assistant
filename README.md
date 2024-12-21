@@ -65,6 +65,8 @@ By following the steps above, you can ensure the Gemini API key is properly conf
 
 ## Usage
 
+### Running the Application
+
 1. **Run the Application:**
 
    ```bash
@@ -93,6 +95,13 @@ By following the steps above, you can ensure the Gemini API key is properly conf
 
 6. **Clear Chat (Optional):**
    To clear all previous messages and start fresh, click the **"Clear Chat"** button in the sidebar.
+
+
+### Screenshots
+
+![Screenshot 1](./screenshots/screenshot_1.png)
+
+![Screenshot 2](./screenshots/screenshot_2.png)
 
 ## Development Notes
 

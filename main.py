@@ -1,31 +1,22 @@
-import os, sys
-from os.path import dirname as up
-
-sys.path.append(os.path.abspath(os.path.join(up(__file__), os.pardir)))
-
 import streamlit as st
-
-
+from utilities import GEMINI_MODELS, init_session_state, encode_pdf
 from gemini_interface import (
     initialize_gemini,
     analyze_pdf_content,
     process_query_stream,
 )
 
-from utilities import GEMINI_MODELS
-from utilities import init_session_state, encode_pdf
-
 
 def main():
-    st.title("Research Paper Analysis Assistant")
+    st.title("📚 Research Paper Analyst ✍")
     init_session_state()
 
     # Sidebar configuration
     with st.sidebar:
-        st.header("Configuration")
+        st.header("⚙️ Configuration")
 
         # Model selection
-        st.subheader("Model Selection")
+        st.subheader("🤖 Model Selection")
         selected_model_name = st.selectbox(
             "Choose Gemini Model",
             options=list(GEMINI_MODELS.keys()),
@@ -36,31 +27,23 @@ def main():
 
         # Initialize the model once API key is provided
         if st.session_state.selected_model:
-            try:
-                st.session_state.model = initialize_gemini(
-                    st.session_state.selected_model
-                )
-            except Exception as e:
-                st.error(f"Error initializing Gemini: {str(e)}")
-                st.session_state.model = None
+            st.session_state.model = initialize_gemini(st.session_state.selected_model)
 
         # File Upload
-        st.subheader("File Upload")
+        st.subheader("📤 File Upload")
         uploaded_file = st.file_uploader("Upload Research Paper (PDF)", type=["pdf"])
 
         if uploaded_file is not None:
             pdf_content = encode_pdf(uploaded_file.read())
             st.session_state.pdf_content = pdf_content
 
-            if st.button("Analyze Paper"):
+            if st.button("✅ Analyze Paper"):
                 if st.session_state.model:
                     st.session_state.messages = []  # Clear previous messages
                     st.session_state.start_analysis = True
-                else:
-                    st.error("Please configure your API key first!")
 
         # Clear chat button
-        if st.button("Clear Chat"):
+        if st.button("🧹 Clear Chat"):
             st.session_state.messages = []
             st.rerun()
 
