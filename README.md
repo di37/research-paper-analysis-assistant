@@ -40,8 +40,28 @@ This application uses the Gemini model to provide in-depth analysis of research 
    # ... any other required packages
    ```
 
-3. **Set Up Your Gemini API Key:**
-   Obtain an API key from Gemini. You will be prompted to enter it in the application’s sidebar once you run the app.
+3. **Set Up Your Gemini API Key:** 
+    This project requires a Google API key for authenticated requests which you can get from [Google AI Studio](ai.google.dev). To set this up:
+
+    1. **Locate the `.env` File:**  
+    Copy the provided `.env.example` file to `.env` and open it in your preferred text editor.
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    2. **Add Your Gemini API Key:**  
+    In your newly created `.env` file, replace the placeholder value with your actual Google API key:
+    ```env
+    GOOGLE_API_KEY=your_actual_google_api_key_here
+    ```
+
+    3. **Save and Verify:**  
+    Once saved, the application will load your API key from the `.env` file at runtime. Ensure you keep your key secure and never commit `.env` files containing sensitive information to version control.
+
+---
+
+By following the steps above, you can ensure the Gemini API key is properly configured before running the application.
 
 ## Usage
 
